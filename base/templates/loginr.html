@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<nav class="navbar navbar-expand-md navbar-light bg-light">
+  <a class="navbar-brand" href="#">MyJobSite</a>
+
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+ 
+</nav>
+
+  <div class="container mt-5">
+    <div class="row justify-content-center">
+      <div class="col-md-6">
+        <div class="card">
+          <div class="card-body">
+            <h4 class="card-title mb-4">Login for recruiter</h4>
+            <form action="{% url 'success_r' %}" method="POST">
+              {% csrf_token %}
+              <div class="form-group">
+                <label for="username">Username</label>
+                <input type="text" name="username" class="form-control" id="username" required>
+              </div>
+              <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" name="password" class="form-control" id="password" required>
+              </div>
+              <div class="form-group">
+                <button type="submit" class="btn btn-primary btn-block">Login</button>
+              </div>
+            </form>
+            <p>Don't have an account ? <a href="{% url 'register' %}">register</a></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}

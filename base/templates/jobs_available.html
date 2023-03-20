@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<!-- Header section -->
+<header>
+  <nav class="navbar navbar-expand-md navbar-light bg-light">
+    <a class="navbar-brand" href="#">MyJobSite</a>
+  
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="#">Logout</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">About</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Contact</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+</header>
+
+<!-- Job search section -->
+<section class="container my-5">
+  <h1>Search for Jobs</h1>
+  <form method="GET">
+    <div class="row g-3 my-3">
+      <div class="col-md-6">
+        <input type="text" class="form-control" name="job_title" placeholder="Job Title">
+      </div>
+      <div class="col-md-6">
+        <input type="text" class="form-control" name="location" placeholder="Location">
+      </div>
+    </div>
+    <button type="submit" class="btn btn-primary">Search</button>
+  </form>
+</section>
+
+<!-- Job listings section -->
+<section class="container my-5">
+  <h2>Job Listings</h2>
+  {% for job in jobs %}
+  <div class="card my-3">
+    <div class="card-body">
+      <h5 class="card-title">{{ job.title }}</h5>
+      <h6 class="card-subtitle mb-2 text-muted">{{ job.company }}</h6>
+      <p class="card-text">{{ job.description }}</p>
+      <a href="#" class="btn btn-primary">Apply Now</a>
+    </div>
+  </div>
+  {% empty %}
+  <p>No jobs found.</p>
+  {% endfor %}
+</section>
+
+{% endblock %}

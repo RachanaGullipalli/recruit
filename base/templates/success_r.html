@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<!-- Header section -->
+<nav class="navbar navbar-expand-md navbar-light bg-light">
+    <a class="navbar-brand" href="#">MyJobSite</a>
+
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="#">Logout</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">About</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Contact</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+<!-- Button section -->
+<section class="container my-5">
+  <div class="row justify-content-center">
+    <div class="col-md-6 text-center">
+      <a href="{% url 'jobs_creation' %}" class="btn btn-lg btn-primary">Create New Job</a>
+    </div>
+    <div class="col-md-6 text-center">
+      <a href="{% url 'jobs_recruit_view' %}" class="btn btn-lg btn-secondary">View Existing Jobs</a>
+    </div>
+  </div>
+</section>
+
+{% endblock %}
